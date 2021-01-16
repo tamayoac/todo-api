@@ -12,7 +12,9 @@
 */
 
 $router->group(['prefix' => 'api'], function() use ($router) {
-    
+    $router->group(['middleware' => 'api-login'], function() use ($router) {
+        $router->post('/login', '\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken');
+    });
     $router->get('/todos','TodoController@index');
     $router->post('/todos','TodoController@store');
     $router->delete('/todos/{id}','TodoController@destory');

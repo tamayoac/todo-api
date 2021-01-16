@@ -79,6 +79,7 @@ $app->middleware([
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
+    'api-login' => App\Http\Middleware\LoginMiddleware::class
 ]);
 
 /*
@@ -96,8 +97,10 @@ $app->routeMiddleware([
 // $app->register(App\Providers\EventServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 
+$app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
 $app->register(Laravel\Passport\PassportServiceProvider::class);
 $app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
+
 
 /*
 |--------------------------------------------------------------------------
