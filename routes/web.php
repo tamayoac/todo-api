@@ -11,16 +11,10 @@
 |
 */
 
-$router->group(['prefix' => 'api'], function() use ($router) {
-    $router->group(['middleware' => 'api-login'], function() use ($router) {
-        $router->post('/login', '\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken');
-    });
-    $router->get('/todos','TodoController@index');
-    $router->post('/todos','TodoController@store');
-    $router->delete('/todos/{id}','TodoController@destory');
-    // $router->post('/company','CompanyController@store');
-    // $router->get('/company/{company}','CompanyController@show');
-    // $router->put('/company/{company}','CompanyController@update');
-    // $router->patch('/company/{company}','CompanyController@update');
-   
-});
+$router->get('/todos/{user}','TodoController@index');
+$router->post('/todos/{user}','TodoController@store');
+$router->get('/todos/{user}/{todo}','TodoController@show');
+$router->put('/todos/{user}/{todo}','TodoController@update');
+$router->patch('/todos/{user}/{todo}','TodoController@udpate');
+$router->delete('/todos/{user}/{todo}','TodoController@destory');
+
