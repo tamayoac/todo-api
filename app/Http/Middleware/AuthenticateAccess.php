@@ -18,11 +18,11 @@ class AuthenticateAccess
     public function handle($request, Closure $next)
     {
         
-        $validSecrets = explode(',', env('ACCEPTED_SECRET'));
+        // $validSecrets = explode(',', env('ACCEPTED_SECRET'));
        
-        if(in_array($request->header('Authorization'), $validSecrets)) {
+        // if(in_array($request->header('Authorization'), $validSecrets)) {
             return $next($request);
-            }
-         abort(Response::HTTP_UNAUTHORIZED);
+        //     }
+        //  abort(Response::HTTP_UNAUTHORIZED);
     }
 }

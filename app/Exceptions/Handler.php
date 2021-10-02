@@ -2,8 +2,8 @@
 
 namespace App\Exceptions;
 
-use App\Traits\ApiResponser;
 use Throwable;
+use App\Traits\ApiResponser;
 use Illuminate\Http\Response;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Validation\ValidationException;
@@ -73,8 +73,9 @@ class Handler extends ExceptionHandler
         }
         if($exception instanceof ValidationException)
         {
+          
             $errors = $exception->validator->errors()->getMessages();
-
+           
             return $this->errorResponse($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
         }
         if(env('APP_DEBUG', false))

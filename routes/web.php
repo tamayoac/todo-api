@@ -17,4 +17,5 @@ $router->get('/todos/{user}/{todo}','TodoController@show');
 $router->put('/todos/{user}/{todo}','TodoController@update');
 $router->patch('/todos/{user}/{todo}','TodoController@udpate');
 $router->delete('/todos/{user}/{todo}','TodoController@destory');
+$router->get('/todos/{user}/{todo}','TodoController@updateStatus');
 
